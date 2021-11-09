@@ -1,6 +1,6 @@
 provider "kubernetes" {
-  config_path    = var.kube_config_path
-  config_context = var.kube_config_context
+  #config_path    = var.kube_config_path
+  #config_context = var.kube_config_context
 }
 
 resource "kubernetes_namespace" "test_auth_namespace" {
@@ -12,7 +12,7 @@ resource "kubernetes_namespace" "test_auth_namespace" {
 resource "kubernetes_config_map" "example_richard_gabs" {
   metadata {
     name = "my-tf-lab-config"
-    namespace = "kube-system"
+    #namespace = "kube-system"
   }
 
   data = {
