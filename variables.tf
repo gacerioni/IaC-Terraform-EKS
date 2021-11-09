@@ -16,5 +16,5 @@ variable "eks_cluster_name" {
 }
 
 variable "kubernetes-namespace" {
-    default = "gabs-exec-ns"
+    default = "gabs-exec-delegate-ns"
 }
