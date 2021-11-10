@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "kube_config_path" {
-  default = "/Users/gacerioni/.kube/config"
+  default = ""
 }
 
 variable "kube_config_context" {
