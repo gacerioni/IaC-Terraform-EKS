@@ -9,14 +9,13 @@ resource "kubernetes_namespace" "test_auth_namespace" {
   }
 }
 
-resource "kubernetes_config_map" "example_richard_gabs" {
+resource "kubernetes_config_map" "aws_auth" {
   metadata {
-    name = "my-tf-lab-config"
+    name = "aws_auth_test"
     namespace = "kube-system"
   }
 
   data = {
-    api_host             = "myhost:443"
-    db_host              = "dbhost:5432"
+    mapRoles = "mapRoles": "- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::915632791698:role/gabs_eks_workernodes\n  username: system:node:{{EC2PrivateDNSName}}\n- groups:\n  - system:masters\n  rolearn: arn:aws:iam::915632791698:role/ec2_delegate_poweruser_role\n  username: arn:aws:iam::915632791698:role/ec2_delegate_poweruser_role\n"
   }
 }
