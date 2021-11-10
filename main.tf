@@ -11,11 +11,11 @@ resource "kubernetes_namespace" "test_auth_namespace" {
 
 resource "kubernetes_config_map" "aws_auth" {
   metadata {
-    name = "aws-auth-test"
+    name      = "aws-auth"
     namespace = "kube-system"
   }
 
   data = {
-    mapRoles = "TEST"
+    mapRoles = [{"groups":["system:bootstrappers","system:nodes"],"rolearn":"arn:aws:iam::915632791698:role/gabs_eks_workernodes","username":"system:node:{{EC2PrivateDNSName}}"},{"groups":["system:masters"],"rolearn":"arn:aws:iam::915632791698:role/ec2_delegate_poweruser_role","username":"arn:aws:iam::915632791698:role/ec2_delegate_poweruser_role"}]
   }
 }
