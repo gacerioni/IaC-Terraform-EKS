@@ -16,6 +16,6 @@ resource "kubernetes_config_map" "aws_auth_test" {
   }
 
   data = {
-    mapRoles = [{"groups":["system:bootstrappers","system:nodes"],"rolearn":"arn:aws:iam::915632791698:role/gabs_eks_workernodes","username":"system:node:{{EC2PrivateDNSName}}"},{"groups":["system:masters"],"rolearn":"arn:aws:iam::915632791698:role/ec2_delegate_poweruser_role","username":"arn:aws:iam::915632791698:role/ec2_delegate_poweruser_role"}]
+    mapRoles = "TEST"
   }
 }
