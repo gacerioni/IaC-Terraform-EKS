@@ -11,7 +11,7 @@ resource "kubernetes_namespace" "test_auth_namespace" {
 
 resource "kubernetes_config_map" "aws_auth" {
   metadata {
-    name = "aws_auth_test"
+    name = "aws-auth-test"
     namespace = "kube-system"
   }
 
