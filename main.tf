@@ -12,7 +12,7 @@ resource "kubernetes_namespace" "test_auth_namespace" {
 resource "kubernetes_config_map" "example_richard_gabs" {
   metadata {
     name = "my-tf-lab-config"
-    #namespace = "kube-system"
+    namespace = "kube-system"
   }
 
   data = {
